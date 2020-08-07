@@ -29,7 +29,9 @@ func New(user, password, dName string) (storage.Service, error) {
 func (db *Mysql) Close() error { return db.Close() }
 
 func (db *Mysql) LoadTables() {
+
 	db.AutoMigrate(&model.User{})
+	db.AutoMigrate()
 }
 
 func (db *Mysql) SaveUser(user model.User) (*model.User, error) {

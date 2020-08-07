@@ -27,5 +27,8 @@ type service struct {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-type", "text/plain; charset=utf-8")
+	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode("hiii")
 }
