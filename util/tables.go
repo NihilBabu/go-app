@@ -1,13 +1,11 @@
 package util
 
 import (
-	"github.com/NihilBabu/go-app/model"
 	"github.com/NihilBabu/go-app/storage"
 )
 
-func InitialMigrate() {
-	db := storage.GetDatabaseConnection()
+func InitialMigrate(svc storage.Service) {
 
-	defer db.Close()
-	db.AutoMigrate(&model.User{})
+	svc.LoadTables()
+	// db.AutoMigrate(&model.User{})
 }

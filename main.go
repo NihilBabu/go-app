@@ -10,46 +10,34 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/NihilBabu/go-app/storage"
+	"github.com/NihilBabu/go-app/handler"
 	"github.com/NihilBabu/go-app/storage/mysql"
 	"github.com/NihilBabu/go-app/util"
-	"github.com/gorilla/mux"
 )
 
-var router *mux.Router
-
 func init() {
-	log.Println("Initializing app")
-	//testing for database connection
-	util.InitialMigrate()
 
-	router = GetAllRoutes()
-
-	mys := mysql.Mysql{}
-
-	a, _ := storage.Service.Save(&mys, "hlo")
-
-	log.Println(a)
-
-	// a, _ := storage.Service.Save("hlo")
-
-	// log.Println(a)
 }
 
 func main() {
 	var wait time.Duration
-	flag.DurationVar(&wait, "graceful-timeout", time.Second*15, "the duration for which the server gracefully wait for existing connections to finish - e.g. 15s or 1m")
+	flag.DurationVar(&wait, "graceful-timeout", time.Second*15, "wait for existing connections to finish")
 	flag.Parse()
 
-	// r := GetAllRoutes()
+	svc, err := mysql.New("root", "pass", "go")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer svc.Close()
+
+	util.InitialMigrate(svc)
 
 	srv := &http.Server{
-		Addr: "0.0.0.0:8080",
-		// Good practice to set timeouts to avoid Slowloris attacks.
+		Addr:         "0.0.0.0:8080",
 		WriteTimeout: time.Second * 15,
 		ReadTimeout:  time.Second * 15,
 		IdleTimeout:  time.Second * 60,
-		Handler:      router, // Pass our instance of gorilla/mux in.
+		Handler:      handler.New(svc),
 	}
 
 	go func() {
@@ -60,7 +48,7 @@ func main() {
 	}()
 
 	c := make(chan os.Signal, 1)
-	signal.Notify(c, os.Interrupt)
+	signal.Notify(c, os.Interrupt, os.Kill)
 	<-c
 	ctx, cancel := context.WithTimeout(context.Background(), wait)
 	defer cancel()
