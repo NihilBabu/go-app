@@ -21,7 +21,7 @@ func (h *Handlers) SetupRoutes(mux *http.ServeMux) {
 }
 
 func (h *Handlers) Home(w http.ResponseWriter, r *http.Request) {
-	// h.db.ExecContext(r.Context(), "")
+	//h.db.ExecContext(r.Context(), "select ")
 	users, err := h.db.GetUsers()
 	if err != nil {
 		h.logger.Printf("data fetching failed due to %v\n", err)

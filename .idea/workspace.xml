@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24969792-6bb2-4809-8eba-64638cdd9fc9" name="Default Changelist" comment="" />
+    <list default="true" id="24969792-6bb2-4809-8eba-64638cdd9fc9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homepage/home.go" beforeDir="false" afterPath="$PROJECT_DIR$/homepage/home.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +23,9 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1fmWs5btjmZ0FWkyxkALG3pnt0M" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -98,8 +105,8 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.go build github.com/NihilBabu/micro" />
-      <item itemvalue="HTTP Request.requests#1" />
       <item itemvalue="Go Test.TestHandlers_Handler in github.com/NihilBabu/micro/homepage" />
+      <item itemvalue="HTTP Request.requests#1" />
     </list>
     <recent_temporary>
       <list>
