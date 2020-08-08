@@ -1,25 +1,36 @@
 package homepage
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
 	"time"
 
-	"github.com/jmoiron/sqlx"
+	"github.com/NihilBabu/micro/storage"
 )
 
 const message = "hlo welcome"
 
 type Handlers struct {
 	logger *log.Logger
-	db     *sqlx.DB
+	db     storage.Service
+}
+
+func (h *Handlers) SetupRoutes(mux *http.ServeMux) {
+	mux.HandleFunc("/", h.Logger(h.Home))
 }
 
 func (h *Handlers) Home(w http.ResponseWriter, r *http.Request) {
-	h.db.ExecContext(r.Context(), "")
+	// h.db.ExecContext(r.Context(), "")
+	users, err := h.db.GetUsers()
+	if err != nil {
+		h.logger.Printf("data fetching failed due to %v\n", err)
+	}
+
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(message))
+	// w.Write([]byte(users))
+	json.NewEncoder(w).Encode(users)
 }
 
 func (h *Handlers) Logger(next http.HandlerFunc) http.HandlerFunc {
@@ -32,11 +43,7 @@ func (h *Handlers) Logger(next http.HandlerFunc) http.HandlerFunc {
 	}
 }
 
-func (h *Handlers) SetupRoutes(mux *http.ServeMux) {
-	mux.HandleFunc("/", h.Logger(h.Home))
-}
-
-func NewHandlers(logger *log.Logger, db *sqlx.DB) *Handlers {
+func New(logger *log.Logger, db storage.Service) *Handlers {
 	return &Handlers{
 		logger: logger,
 		db:     db,

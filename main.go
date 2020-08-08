@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/NihilBabu/micro/homepage"
-	"github.com/NihilBabu/micro/server"
-	"github.com/jmoiron/sqlx"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/NihilBabu/micro/homepage"
+	"github.com/NihilBabu/micro/server"
+	"github.com/NihilBabu/micro/storage/mysql"
 )
 
 var (
@@ -16,28 +17,21 @@ var (
 )
 
 func main() {
-	logger := log.New(os.Stdout,"micro-app ",log.LstdFlags | log.Lshortfile )
+	logger := log.New(os.Stdout, "micro-app ", log.LstdFlags|log.Lshortfile)
 
-	db,err := sqlx.Open("postgres","")
+	db, err := mysql.New("hi", "hlo", "hey")
 	if err != nil {
 		logger.Fatalln(err)
 	}
 
-	err = db.Ping()
-	if err != nil {
-		logger.Fatalln(err)
-	}
-
-	h := homepage.NewHandlers(logger,db)
+	h := homepage.New(logger, db)
 	mux := http.NewServeMux()
 	h.SetupRoutes(mux)
 
-
 	srv := server.New(mux, ServiceAddr)
-	logger.Printf("Server is starting up in %v\n",ServiceAddr)
+	logger.Printf("Server is starting up in %v\n", ServiceAddr)
 	err = srv.ListenAndServeTLS(CertFile, KeyFile)
 	if err != nil {
 		logger.Fatalf("server failed to start: %v", err)
 	}
 }
-
