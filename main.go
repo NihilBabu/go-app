@@ -2,12 +2,12 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"os"
 
-	"github.com/NihilBabu/micro/homepage"
+	"github.com/NihilBabu/micro/handler"
 	"github.com/NihilBabu/micro/server"
 	"github.com/NihilBabu/micro/storage/mysql"
+	"github.com/gorilla/mux"
 )
 
 var (
@@ -19,13 +19,13 @@ var (
 func main() {
 	logger := log.New(os.Stdout, "micro-app ", log.LstdFlags|log.Lshortfile)
 
-	db, err := mysql.New("hi", "hlo", "hey")
+	db, err := mysql.New("root", "password", "go","127.0.0.1:3306")
 	if err != nil {
 		logger.Fatalln(err)
 	}
 
-	h := homepage.New(logger, db)
-	mux := http.NewServeMux()
+	h := handler.New(logger, db)
+	mux := mux.NewRouter()
 	h.SetupRoutes(mux)
 
 	srv := server.New(mux, ServiceAddr)

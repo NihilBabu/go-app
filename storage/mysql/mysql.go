@@ -1,8 +1,6 @@
 package mysql
 
 import (
-	"log"
-
 	"github.com/NihilBabu/micro/model"
 	"github.com/NihilBabu/micro/storage"
 	"github.com/jinzhu/gorm"
@@ -11,11 +9,8 @@ import (
 
 type Mysql struct{ *gorm.DB }
 
-func New(user, password, dName string) (storage.Service, error) {
-	log.Printf(user)
-	log.Printf(password)
-	log.Printf(dName)
-	b, err := gorm.Open("mysql", "root:password@tcp(127.0.0.1:3306)/go?charset=utf8&parseTime=True&loc=Local")
+func New(user, password, dName,url string) (storage.Service, error) {
+	b, err := gorm.Open("mysql", user+":"+password+"@tcp("+url+")/"+dName+"?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		return nil, err
 	}
@@ -31,17 +26,18 @@ func (db *Mysql) LoadTables() {
 }
 
 func (db *Mysql) SaveUser(user model.User) (*model.User, error) {
-
-	// defer db.Close()
-	err := db.Create(&user)
-	if err.Error != nil {
-		return nil, err.Error
-	}
-	return &user, nil
+	err := db.Create(&user).Error
+	return &user, err
 }
 
 func (db *Mysql) GetUsers() ([]model.User, error) {
 	var users []model.User
-	db.Where("is_deleted =?", false).Find(&users)
-	return users, nil
+	err := db.Where("is_deleted =?", false).Find(&users).Error
+	return users, err
+}
+
+func (db *Mysql) GetUser(userId string) (model.User, error) {
+	var user model.User
+	err := db.Where("id =? and is_deleted =?", userId,false).Find (&user).Error
+	return user, err
 }
