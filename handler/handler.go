@@ -24,8 +24,8 @@ func New(logger *log.Logger, db storage.Service) *Handlers {
 }
 
 func (h *Handlers) SetupRoutes(mux *mux.Router) {
-	mux.HandleFunc("/", h.benchmark(h.getUsers))
-	mux.HandleFunc("/user/{userId}", h.benchmark(h.getUser))
+	mux.HandleFunc("/", h.benchmark(h.getUsers)).Methods("GET")
+	mux.HandleFunc("/user/{userId}", h.benchmark(h.getUser)).Methods("GET")
 }
 
 func (h *Handlers) benchmark(next http.HandlerFunc) http.HandlerFunc {
