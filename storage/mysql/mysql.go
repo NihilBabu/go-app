@@ -26,7 +26,7 @@ func (db *Mysql) LoadTables() {
 }
 
 func (db *Mysql) SaveUser(user model.User) (*model.User, error) {
-	err := db.Create(&user).Error
+	err := db.Create(user).Error
 	return &user, err
 }
 

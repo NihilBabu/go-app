@@ -1,5 +1,16 @@
-GET https://127.0.0.1:8080
 ###
-GET https://127.0.0.1:8080/user/ed73d59f-a950-4131-939d-305fad83bf02
+GET https://127.0.0.1:8080/user
 
+###
+GET https://127.0.0.1:8080/user/ed73d59f-a950-4131-939d-305fad83bf021
+
+###
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "nd@d.co",
+  "password": "pass"
+}
 

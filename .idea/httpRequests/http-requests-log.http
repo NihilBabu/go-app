@@ -1,3 +1,72 @@
+GET https://127.0.0.1:8080/user
+
+<> 2020-08-15T062132.200.txt
+
+###
+
+GET https://127.0.0.1:8080/user
+
+<> 2020-08-15T062007.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "nd@d.co",
+  "password": "pass"
+}
+
+<> 2020-08-15T061912.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "nd@d.co",
+  "password": "pass"
+}
+
+<> 2020-08-15T061435.404.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "nd@d.co",
+  "password": "pass"
+}
+
+<> 2020-08-15T061318.404.txt
+
+###
+
+GET https://127.0.0.1:8080/user/ed73d59f-a950-4131-939d-305fad83bf021
+
+<> 2020-08-15T061157.200.txt
+
+###
+
+GET https://127.0.0.1:8080/user/ed73d59f-a950-4131-939d-305fad83bf02
+
+<> 2020-08-15T061152.200.txt
+
+###
+
+GET https://127.0.0.1:8080
+
+<> 2020-08-15T061147.200.txt
+
+###
+
 GET https://127.0.0.1:8080
 
 <> 2020-08-10T114608.200.txt

@@ -25,11 +25,18 @@ func (h *Handlers) getUser(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		w.WriteHeader(http.StatusOK)
-		json.NewEncoder(w).Encode("error due to" + err.Error())
+
+		json.NewEncoder(w).Encode("error due to " + err.Error())
 		return
 	}
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(users)
 
+}
+
+func (h *Handlers) addUser(w http.ResponseWriter, r *http.Request)  {
+
+
+	json.NewEncoder(w).Encode("user add request")
 }
