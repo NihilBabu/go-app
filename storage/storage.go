@@ -13,7 +13,8 @@ type storage struct {
 type Service interface {
 	LoadTables()
 	GetUsers() ([]model.User, error)
-	SaveUser(model.User) (*model.User, error)
+	SaveUser(model.User) (model.User, error)
 	GetUser(string) (model.User, error)
+	DeleteUser(string) (error)
 	Close() error
 }

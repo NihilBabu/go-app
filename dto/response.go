@@ -1,4 +1,4 @@
-package model
+package dto
 
 type Response struct {
 	Status  bool
@@ -14,7 +14,7 @@ func SuccessResponse(data string) Response {
 	}
 }
 
-func SuccessResponse(message, data string) Response {
+func SuccessResponseWithMessage(data,message string) Response {
 	return Response{
 		Status:  true,
 		Message: "",

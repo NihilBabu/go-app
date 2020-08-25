@@ -21,13 +21,13 @@ func (db *Mysql) Close() error { return db.Close() }
 
 func (db *Mysql) LoadTables() {
 
-	db.AutoMigrate(&model.User{})
+	db.AutoMigrate(model.User{})
 	db.AutoMigrate()
 }
 
-func (db *Mysql) SaveUser(user model.User) (*model.User, error) {
+func (db *Mysql) SaveUser(user model.User) (model.User, error) {
 	err := db.Create(user).Error
-	return &user, err
+	return user, err
 }
 
 func (db *Mysql) GetUsers() ([]model.User, error) {

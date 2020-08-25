@@ -9,8 +9,8 @@ POST https://127.0.0.1:8080/user
 Content-Type: application/json
 
 {
-  "username": "nihil",
-  "email": "nd@d.co",
-  "password": "pass"
+  "username": "nihil1",
+  "email": "ema1",
+  "password": "password"
 }
 

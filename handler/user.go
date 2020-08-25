@@ -2,8 +2,13 @@ package handler
 
 import (
 	"encoding/json"
+	"github.com/NihilBabu/micro/dto"
+	"github.com/NihilBabu/micro/model"
 	"github.com/gorilla/mux"
 	"net/http"
+	"time"
+
+	"github.com/google/uuid"
 )
 
 func (h *Handlers) getUsers(w http.ResponseWriter, r *http.Request) {
@@ -37,6 +42,31 @@ func (h *Handlers) getUser(w http.ResponseWriter, r *http.Request) {
 
 func (h *Handlers) addUser(w http.ResponseWriter, r *http.Request)  {
 
+	decoder := json.NewDecoder(r.Body)
+	var userDto dto.UserDTO
+	err := decoder.Decode(&userDto)
+	if err != nil {
+		json.NewEncoder(w).Encode("pase error")
+		return
+	}
 
-	json.NewEncoder(w).Encode("user add request")
+	user := model.User{
+		Email: userDto.Email,
+		Name: userDto.Username,
+		Password: userDto.Password,
+		Model: model.Model{
+			ID: uuid.New().String(),
+			CreatedAt: time.Now(),
+			UpdatedAt: time.Now(),
+		},
+	}
+
+	user, err = h.db.SaveUser(user)
+
+	if err !=nil{
+		json.NewEncoder(w).Encode(err)
+		return
+	}
+
+	json.NewEncoder(w).Encode(user)
 }

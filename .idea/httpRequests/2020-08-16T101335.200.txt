@@ -1,0 +1,1 @@
+{"ID":"73657e89-16ee-4a7a-aa7a-dbbc03803737","CreatedAt":"2020-08-16T22:13:35.310581+05:30","UpdatedAt":"2020-08-16T22:13:35.310582+05:30","DeletedAt":null,"IsDeleted":false,"IsActive":false,"Name":"nihil1","Password":"password","Email":"ema1"}

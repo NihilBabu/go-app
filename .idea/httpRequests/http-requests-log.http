@@ -1,3 +1,228 @@
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil1",
+  "email": "ema1",
+  "password": "password"
+}
+
+<> 2020-08-16T101339.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil1",
+  "email": "ema1",
+  "password": "password"
+}
+
+<> 2020-08-16T101335.200.txt
+
+###
+
+GET https://127.0.0.1:8080/user
+
+<> 2020-08-16T101330.200.txt
+
+###
+
+GET https://127.0.0.1:8080/user
+
+<> 2020-08-16T101227.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil1",
+  "email": "ema1",
+  "password": "password"
+}
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil1",
+  "email": "ema",
+  "password": "password"
+}
+
+<> 2020-08-16T101008.200.txt
+
+###
+
+GET https://127.0.0.1:8080/user
+
+<> 2020-08-16T100905.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "ema",
+  "password": "password"
+}
+
+<> 2020-08-16T100843.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "ema",
+  "password": "password"
+}
+
+<> 2020-08-16T100830.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "ema",
+  "password": "password"
+}
+
+<> 2020-08-16T100751.200.txt
+
+###
+
+GET https://127.0.0.1:8080/user
+
+<> 2020-08-16T100748.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "ema",
+  "password": "password"
+}
+
+<> 2020-08-16T100228.200.txt
+
+###
+
+POST http://127.0.0.1:8080/user%20HTTPS/1.1
+Host: 127.0.0.1:8080
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "ema",
+  "password": "password"
+}
+
+<> 2020-08-16T100217.400.txt
+
+###
+
+POST http://127.0.0.1:8080/user
+Host: 127.0.0.1:8080
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "ema",
+  "password": "password"
+}
+
+<> 2020-08-16T100206.400.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/x-www-form-urlencoded
+
+username=as&email=as&password=pass
+
+<> 2020-08-16T095150.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/x-www-form-urlencoded
+
+{
+  "username": "nihil",
+  "email": "nd@d.co",
+  "password": "pass"
+}
+
+<> 2020-08-16T095057.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "nd@d.co",
+  "password": "pass"
+}
+
+<> 2020-08-16T094710.200.txt
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "nd@d.co",
+  "password": "pass"
+}
+
+###
+
+POST https://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "username": "nihil",
+  "email": "nd@d.co",
+  "password": "pass"
+}
+
+<> 2020-08-16T093731.200.txt
+
+###
+
+GET https://127.0.0.1:8080/user/ed73d59f-a950-4131-939d-305fad83bf021
+
+<> 2020-08-16T093725.200.txt
+
+###
+
+GET https://127.0.0.1:8080/user
+
+<> 2020-08-16T093721.200.txt
+
+###
+
 GET https://127.0.0.1:8080/user
 
 <> 2020-08-15T062132.200.txt

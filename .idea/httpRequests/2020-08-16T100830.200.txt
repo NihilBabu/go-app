@@ -1,0 +1,1 @@
+{"ID":"cb31d54c-ac41-474e-9224-de0a773e2c42","CreatedAt":"0001-01-01T00:00:00Z","UpdatedAt":"0001-01-01T00:00:00Z","DeletedAt":null,"IsDeleted":false,"IsActive":false,"Name":"nihil","Password":"password","Email":"ema"}
