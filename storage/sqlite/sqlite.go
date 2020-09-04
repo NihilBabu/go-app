@@ -8,8 +8,8 @@ import (
 )
 type Sqlite struct{ *gorm.DB }
 
-func New() (storage.Service, error) {
-	db, err := gorm.Open("sqlite3", "/tmp/gorm.db")
+func New(path string) (storage.Service, error) {
+	db, err := gorm.Open("sqlite3", path)
 	if err != nil {
 		return nil, err
 	}

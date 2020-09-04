@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24969792-6bb2-4809-8eba-64638cdd9fc9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dto/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handler/user_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/sqlite/sqlite.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/dto/response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requests.http" beforeDir="false" afterPath="$PROJECT_DIR$/requests.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/inmemory/inmemory.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/inmemory/inmemory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/inmemory/inmemory.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/mysql/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/mysql/mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/sqlite/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/sqlite/sqlite.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/storage.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -240,6 +232,15 @@
     </option>
   </component>
   <component name="RunManager" selected="HTTP Request.requests#3">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="micro" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build github.com/NihilBabu/micro" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="micro" />
       <working_directory value="$PROJECT_DIR$" />

@@ -2,14 +2,13 @@ package mysql
 
 import (
 	"github.com/NihilBabu/micro/model"
-	"github.com/NihilBabu/micro/storage"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 type Mysql struct{ *gorm.DB }
 
-func New(user, password, dName,url string) (storage.Service, error) {
+func New(user, password, dName, url string) (*Mysql, error) {
 	b, err := gorm.Open("mysql", user+":"+password+"@tcp("+url+")/"+dName+"?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		return nil, err

@@ -16,5 +16,6 @@ type Service interface {
 	SaveUser(model.User) (model.User, error)
 	GetUser(string) (model.User, error)
 	DeleteUser(string) (error)
+	//GetDb() (interface)
 	Close() error
 }
