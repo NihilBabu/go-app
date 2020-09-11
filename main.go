@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/NihilBabu/micro/storage/sqlite"
+	"github.com/NihilBabu/micro/storage/mysql"
 	"log"
 	"os"
 
@@ -19,8 +19,8 @@ var (
 func main() {
 	logger := log.New(os.Stdout, "micro-app ", log.LstdFlags|log.Lshortfile)
 
-	//db, err := mysql.New("root", "password", "go","127.0.0.1:3306")
-	db, err := sqlite.New("/tmp/gorm.db")
+	db, err := mysql.New("root", "password", "go","127.0.0.1:3306")
+	//db, err := sqlite.New("/tmp/gorm.db")
 	db.LoadTables()
 	if err != nil {
 		logger.Fatalln(err)

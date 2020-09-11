@@ -34,7 +34,8 @@ func New(mux *mux.Router, serverAddr string) *http.Server {
 		WriteTimeout: 10 * time.Second,
 		IdleTimeout:  120 * time.Second,
 		TLSConfig:    tlsConfig,
-		Handler:      mux,
+		Handler:    mux,
+		//Handler:    apmhttp.Wrap(mux),
 	}
 	return srv
 }

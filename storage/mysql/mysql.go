@@ -8,6 +8,8 @@ import (
 
 type Mysql struct{ *gorm.DB }
 
+
+
 func New(user, password, dName, url string) (*Mysql, error) {
 	b, err := gorm.Open("mysql", user+":"+password+"@tcp("+url+")/"+dName+"?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
@@ -39,4 +41,10 @@ func (db *Mysql) GetUser(userId string) (model.User, error) {
 	var user model.User
 	err := db.Where("id =? and is_deleted =?", userId,false).Find (&user).Error
 	return user, err
+}
+
+func (db *Mysql) DeleteUser(userId string) error {
+	err := db.Find("id =? and is_deleted =?", userId,false).UpdateColumn("is_deleted", true).Error
+
+	return err
 }
